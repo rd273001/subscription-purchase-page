@@ -1,10 +1,11 @@
 import React from 'react';
+import SubscriptionPurchase from './pages/SubscriptionPurchase';
 
 const App = () => {
 
   return (
-    <h1 className='text-purple-500'>Subscription Purchase Page</h1>
-  );
-};
+    <SubscriptionPurchase />
+  )
+}
 
 export default App;
