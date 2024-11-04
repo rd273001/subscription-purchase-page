@@ -4,7 +4,7 @@ import ProductSelection from '@/components/ProductSelection';
 
 const SubscriptionPurchase = () => {
   return (
-    <div className='flex flex-col min-h-screen bgwhite'>
+    <div className='flex flex-col min-h-screen bg-white'>
       <Header />
       <div className='bg-white'>
         <div className='grid lg:grid-cols-2 justify-items-center gap-8'>
@@ -13,9 +13,7 @@ const SubscriptionPurchase = () => {
             {/* <InvoiceDetails /> */ }
             <ProductSelection />
           </div>
-          <div className='lg:w-1/3 bg-gray-50 p-8'>
-              {/* <Summary /> */ }
-            </div>
+          {/* <Summary /> */ }
         </div>
       </div>
     </div>
