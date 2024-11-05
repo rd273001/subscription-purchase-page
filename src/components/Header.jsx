@@ -10,9 +10,9 @@ const Header = () => {
           <span className='text-[#124974] size-fit'>Your plan includes:</span>
           { Array( 3 ).fill( '24/7 customer care' ).map( ( feature, i ) => (
             <div key={ i } className='flex items-center gap-2'>
-              <div className='rounded-full bg-custom-blue'>
-                <Check className='size-5 m-0.5 text-white rounded-full' />
-              </div>
+              {/* <div className='rounded-full bg-custom-blue'> */}
+                <Check className='size-6 p-0.5 text-white bg-custom-blue rounded-full' />
+              {/* </div> */}
               <span className=''>{ feature }</span>
             </div>
           ) ) }

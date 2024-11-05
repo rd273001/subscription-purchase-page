@@ -1,38 +1,38 @@
-import React, { useState } from 'react';
-import { Info, Minus, Plus } from 'lucide-react';
-import { Card } from './ui/Card';
+import React from 'react';
+import { Check, Info, Minus, Plus } from 'lucide-react';
+import { Card } from '@/commons/card';
 
-const ProductSelection = () => {
-  const [userCount, setUserCount] = useState( 1 );
+const ProductSelection = React.memo( ( { userCount, setUserCount, selectedCycle, setSelectedCycle, cyclePrices, actualTotalPrice } ) => {
 
   return (
     <Card>
-      <div className='flex items-center mb-4'>
-        <img src='logo.png' className='w-9 p-1.5 bg-gradient-to-b from-[#5187EE] to-[#324C7E] rounded-md mr-2' />
-        <h2 className='text-xl font-bold'>Your products</h2>
-        <Info className='ml-2 text-custom-blue' size={ 16 } />
+      <div className='flex items-center gap-x-2'>
+        <img src='logo.png' className='w-9 p-1.5 bg-gradient-to-b from-[#5187EE] to-[#324C7E] rounded-md' />
+        <h2 className='text-xl font-semibold'>Your products</h2>
+        <Check className='text-white bg-custom-blue rounded-full p-0.5' size={ 16 } />
       </div>
+      <hr className='w-5/6 border border-custom-gray-300 my-3 rounded-full' />
       <div className='mb-4'>
-        <div className='flex justify-between items-center mb-2'>
-          <label className='font-medium'>Select the number of users</label>
-          <Info className='text-gray-400' size={ 16 } />
+        <div className='flex items-center mb-2 gap-x-2'>
+          <label className='text-lg font-medium'>Select the number of users</label>
+          <Info className='text-custom-blue p-0.5' />
         </div>
-        <p className='text-sm text-gray-500 mb-2'>The minimum amount is 1 user.</p>
+        <p className='text-sm text-custom-gray-500 mb-2'>The minimum amount is 1 user.</p>
         <div className='flex'>
           <input
             type='number'
-            className='border border-custom-gray-100 rounded-md text-center text-custom-blue py-1.5'
+            className='border border-e-0 border-custom-gray-100 outline-none focus:border-custom-blue rounded-lg rounded-r-none text-center text-custom-blue py-1.5'
             value={ userCount }
             onChange={ ( e ) => setUserCount( Math.max( 1, parseInt( e.target.value ) || 1 ) ) }
           />
           <button
-            className='border rounded-md p-2'
+            className='border p-2'
             onClick={ () => setUserCount( Math.max( 1, userCount - 1 ) ) }
           >
             <Minus className='text-[#9CA3AF]' />
           </button>
           <button
-            className='border rounded-md p-2'
+            className='border border-l-0 rounded-lg rounded-l-none p-2'
             onClick={ () => setUserCount( userCount + 1 ) }
           >
             <Plus className='text-[#9CA3AF]' />
@@ -40,19 +40,27 @@ const ProductSelection = () => {
         </div>
       </div>
       <div>
-        <label className='font-medium block mb-2'>Select a subscription cycle</label>
+        <label className='text-lg font-medium block mb-2'>Select a subscription cycle</label>
         <div className='grid grid-cols-2 gap-4'>
-          { ['Monthly', 'Yearly'].map( ( cycle ) => (
-            <div key={ cycle } className='border rounded-lg p-4 focus:border-custom-blue'>
-              <h3 className='font-medium'>{ cycle }</h3>
-              <p className='text-2xl font-bold'>₹1300</p>
-              <p className='text-sm text-gray-500'>/month/user, billed monthly</p>
-            </div>
+          { Object.keys( cyclePrices ).map( ( cycle ) => (
+            <button
+              key={ cycle }
+              onClick={ () => setSelectedCycle( cycle ) }
+              className={ `flex flex-col border rounded-lg p-4 pr-12 ${ cycle === selectedCycle ? 'border-custom-blue' : 'border-custom-gray-300' }` }
+            >
+              <p>{ cycle }</p>
+              { cycle === 'Monthly' && <p className='text-3xl font-bold'>{ `₹${ cyclePrices[cycle] }` }</p> }
+              { cycle === 'Yearly' && <p className='text-3xl font-bold'>
+                { `₹${ cyclePrices[cycle] }` }<span className='ml-1 text-sm font-light line-through'>{ actualTotalPrice }</span>
+              </p>
+              }
+              <p className='text-sm text-custom-gray-500'>{ `${ cycle === 'Monthly' ? '/month' : '/year' }/user, billed ${ String( cycle ).toLowerCase() }` }</p>
+            </button>
           ) ) }
         </div>
       </div>
     </Card>
   );
-};
+} );
 
 export default ProductSelection;
