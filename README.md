@@ -2,7 +2,7 @@
 
 ## Check Live Demo
 
-You can check the live version of the project here : [subscription-purchase-page]
+You can check the live version of the project here : [subscription-purchase-page](https://subscription-purchase-page.netlify.app)
 
 ## Features
 
