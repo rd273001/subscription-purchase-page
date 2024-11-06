@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Header from '@components/Header.jsx';
+import Header from '@components/Header';
 import ProductSelection from '@components/ProductSelection';
 import InvoiceDetails from '@components/InvoiceDetails';
 import Summary from '@components/Summary';

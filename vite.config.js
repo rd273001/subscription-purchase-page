@@ -5,9 +5,9 @@ import react from '@vitejs/plugin-react'
 export default defineConfig( {
   resolve: {
     alias: {
-      '@components': '/src/components/',
-      '@commons': '/src/commons/',
-      '@': '/src/',
+      '@components': '/src/components',
+      '@commons': '/src/commons',
+      '@': '/src',
     },
   },
   plugins: [react()],

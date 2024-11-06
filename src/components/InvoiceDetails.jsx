@@ -1,6 +1,6 @@
 import { Info } from 'lucide-react';
 import React from 'react'
-import Card from '@commons/Card';
+import Card from '@commons/Card.jsx';
 
 const InvoiceDetails = React.memo( ( { address, onAddressChange } ) => {
   // console.count( 'Invoice Card Rendered' );
