@@ -1,6 +1,6 @@
 import React from 'react';
 import { Check, Info, Minus, Plus } from 'lucide-react';
-import Card from '@commons/Card.jsx';
+import Card from '@commons/Card';
 import Divider from '@commons/Divider';
 
 const ProductSelection = React.memo( ( { userCount, setUserCount, selectedCycle, setSelectedCycle, cyclePrices, actualTotalPrice } ) => {
