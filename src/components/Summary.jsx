@@ -1,6 +1,6 @@
 import React from 'react';
-import Card from '@/commons/Card';
-import Divider from '@/commons/Divider';
+import Card from '@commons/Card';
+import Divider from '@commons/Divider';
 import { ShieldCheck, LockKeyhole } from 'lucide-react';
 
 const Summary = React.memo( ( { subtotal, gst, total } ) => {
