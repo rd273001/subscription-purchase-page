@@ -4,7 +4,7 @@ import Card from '@commons/Card';
 import Divider from '@commons/Divider';
 
 const ProductSelection = React.memo( ( { userCount, setUserCount, selectedCycle, setSelectedCycle, cyclePrices, actualTotalPrice } ) => {
-  console.count( 'Product Card Rendered' );
+  // console.count( 'Product Card Rendered' );
 
   return (
     <Card>

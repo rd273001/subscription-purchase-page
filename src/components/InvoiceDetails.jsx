@@ -3,7 +3,7 @@ import React from 'react'
 import Card from '@commons/Card';
 
 const InvoiceDetails = React.memo( ( { address, onAddressChange } ) => {
-  console.count( 'Invoice Card Rendered' );
+  // console.count( 'Invoice Card Rendered' );
 
   return (
     <Card>

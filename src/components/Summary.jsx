@@ -4,7 +4,7 @@ import Divider from '@commons/Divider';
 import { ShieldCheck, LockKeyhole } from 'lucide-react';
 
 const Summary = React.memo( ( { subtotal, gst, total } ) => {
-  console.count( 'Summary Card Rendered' );
+  // console.count( 'Summary Card Rendered' );
 
   return (
     <Card className='h-fit justify-center lg:col-span-2'>
