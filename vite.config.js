@@ -6,7 +6,7 @@ export default defineConfig( {
   resolve: {
     alias: {
       '@components': '/src/components',
-      '@commons': '/src/commons',
+      '@commons': '/src/components/commons',
       '@': '/src',
     },
   },
